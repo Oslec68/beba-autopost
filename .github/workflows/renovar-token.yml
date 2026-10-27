@@ -1,0 +1,27 @@
+name: Renovar token do Instagram
+
+on:
+  schedule:
+    - cron: "17 12 * * 1"   # toda segunda, 09:17 de Brasília
+  workflow_dispatch:
+
+jobs:
+  renovar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Renovar e gravar no secret IG_TOKEN
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          NEW=$(python scripts/refresh_token.py)
+          echo "::add-mask::$NEW"
+          gh secret set IG_TOKEN --repo "${{ github.repository }}" --body "$NEW"
+      - name: Aviso de falha
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python scripts/notify.py "⚠️ Não consegui renovar o token do Instagram. Gere um novo e atualize o secret IG_TOKEN."
