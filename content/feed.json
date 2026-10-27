@@ -1,0 +1,584 @@
+[
+ {
+  "id": "fc001_pessego",
+  "tipo": "carrossel",
+  "slides": [
+   {
+    "t": "capa",
+    "sabor": "pessego",
+    "kicker": "4 SABORES",
+    "h1": "QUAL É",
+    "h2": "O SEU?"
+   },
+   {
+    "t": "produto",
+    "sabor": "limao",
+    "titulo": "Limão",
+    "chips": [
+     "Refrescante",
+     "Zero açúcar",
+     "6 g de fibra"
+    ]
+   },
+   {
+    "t": "produto",
+    "sabor": "tangerina",
+    "titulo": "Tangerina",
+    "chips": [
+     "Cítrico",
+     "Zero caloria",
+     "Tem no OXXO"
+    ]
+   },
+   {
+    "t": "produto",
+    "sabor": "morango",
+    "titulo": "Morango",
+    "chips": [
+     "Docinho na medida",
+     "Zero açúcar",
+     "Tem no OXXO"
+    ]
+   },
+   {
+    "t": "produto",
+    "sabor": "pessego",
+    "titulo": "Pêssego",
+    "chips": [
+     "Suave",
+     "Zero caloria",
+     "Complexo B"
+    ]
+   },
+   {
+    "t": "cta",
+    "sabor": "pessego",
+    "titulo": "Comenta o seu sabor.",
+    "texto": "Limão, tangerina, morango ou pêssego?"
+   }
+  ],
+  "legenda": "Qual é o seu sabor? Conta aqui nos comentários 👇\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n📍 Morango e Tangerina você encontra no OXXO.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #rotinasaudavel #zeroaçucar #bebidafuncional #bebawellness"
+ },
+ {
+  "id": "fi002_limao",
+  "tipo": "imagem",
+  "slides": [
+   {
+    "t": "lineup",
+    "sabor": "limao",
+    "titulo": "4 SABORES. ZERO AÇÚCAR.",
+    "texto": "6 g de fibra em cada garrafa de 400 ml."
+   }
+  ],
+  "legenda": "4 sabores, zero açúcar. Qual você leva hoje?\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #bemestar #zerocaloria #vidasaudavel #bebawellness"
+ },
+ {
+  "id": "fc003_tangerina",
+  "tipo": "carrossel",
+  "slides": [
+   {
+    "t": "capa",
+    "sabor": "tangerina",
+    "kicker": "TROCA INTELIGENTE",
+    "h1": "TROCA",
+    "h2": "O REFRI"
+   },
+   {
+    "t": "vs",
+    "sabor": "tangerina",
+    "titulo": "Na hora da sede",
+    "esq": [
+     "Refri comum",
+     "Costuma ter açúcar",
+     "Sem fibra"
+    ],
+    "dir": [
+     "Pura Fibra",
+     "0 g de açúcar",
+     "6 g de fibra",
+     "Complexo B"
+    ]
+   },
+   {
+    "t": "numero",
+    "sabor": "tangerina",
+    "big": "0 g",
+    "label": "DE AÇÚCAR",
+    "texto": "Sabor de verdade, sem açúcar."
+   },
+   {
+    "t": "numero",
+    "sabor": "tangerina",
+    "big": "0",
+    "label": "CALORIA",
+    "texto": "Leve para qualquer hora do dia."
+   },
+   {
+    "t": "cta",
+    "sabor": "tangerina",
+    "titulo": "Troca que vale.",
+    "texto": "Gelada, leve e com 6 g de fibra."
+   }
+  ],
+  "legenda": "Troca o refri sem perder o gelado. Arrasta pro lado 👉\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #zeroaçucar #zerocaloria #fibras #bebawellness"
+ },
+ {
+  "id": "fi004_limao",
+  "tipo": "imagem",
+  "slides": [
+   {
+    "t": "numero",
+    "sabor": "limao",
+    "big": "6 g",
+    "label": "DE FIBRA",
+    "texto": "24% do valor diário em uma garrafa de 400 ml."
+   }
+  ],
+  "legenda": "6 g de fibra em uma garrafa. 🍋\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #rotinasaudavel #zeroaçucar #bebidafuncional #bebawellness"
+ },
+ {
+  "id": "fc005_morango",
+  "tipo": "carrossel",
+  "slides": [
+   {
+    "t": "capa",
+    "sabor": "morango",
+    "kicker": "POR DENTRO",
+    "h1": "O QUE TEM",
+    "h2": "NA GARRAFA?"
+   },
+   {
+    "t": "numero",
+    "sabor": "morango",
+    "big": "6 g",
+    "label": "DE FIBRA",
+    "texto": "24% do valor diário em cada garrafa."
+   },
+   {
+    "t": "lista",
+    "sabor": "morango",
+    "num": "B",
+    "titulo": "Vitaminas do complexo B",
+    "texto": "B3, B5, B6 e B9 na mesma garrafa."
+   },
+   {
+    "t": "numero",
+    "sabor": "morango",
+    "big": "0",
+    "label": "AÇÚCAR E CALORIA",
+    "texto": "Zero açúcar, zero caloria."
+   },
+   {
+    "t": "numero",
+    "sabor": "morango",
+    "big": "400",
+    "label": "ML",
+    "texto": "Tamanho certo para levar na bolsa."
+   },
+   {
+    "t": "cta",
+    "sabor": "morango",
+    "titulo": "Salva e manda pra quem precisa.",
+    "texto": "Pura Fibra: 6 g de fibra, zero açúcar, zero caloria."
+   }
+  ],
+  "legenda": "O que tem dentro de uma Pura Fibra? Arrasta 👉\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #bemestar #zerocaloria #vidasaudavel #bebawellness"
+ },
+ {
+  "id": "fi006_pessego",
+  "tipo": "imagem",
+  "slides": [
+   {
+    "t": "produto",
+    "sabor": "pessego",
+    "titulo": "Pêssego",
+    "chips": [
+     "Zero açúcar",
+     "Zero caloria",
+     "6 g de fibra"
+    ]
+   }
+  ],
+  "legenda": "Pêssego: suave, gelado e zero açúcar. 🍑\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #zeroaçucar #zerocaloria #fibras #bebawellness"
+ },
+ {
+  "id": "fc007_limao",
+  "tipo": "carrossel",
+  "slides": [
+   {
+    "t": "capa",
+    "sabor": "limao",
+    "kicker": "ROTINA",
+    "h1": "5 MOMENTOS",
+    "h2": "PRA LEVAR"
+   },
+   {
+    "t": "lista",
+    "sabor": "limao",
+    "num": "1",
+    "titulo": "Antes do treino",
+    "texto": "Hidrata e já soma 6 g de fibra."
+   },
+   {
+    "t": "lista",
+    "sabor": "tangerina",
+    "num": "2",
+    "titulo": "Na mesa de trabalho",
+    "texto": "Do lado do notebook, sem açúcar."
+   },
+   {
+    "t": "lista",
+    "sabor": "morango",
+    "num": "3",
+    "titulo": "No almoço",
+    "texto": "Troca o refri por algo leve."
+   },
+   {
+    "t": "lista",
+    "sabor": "pessego",
+    "num": "4",
+    "titulo": "Na viagem",
+    "texto": "Garrafa de 400 ml cabe na mochila."
+   },
+   {
+    "t": "lista",
+    "sabor": "limao",
+    "num": "5",
+    "titulo": "No fim de tarde",
+    "texto": "Gelada, zero caloria."
+   },
+   {
+    "t": "cta",
+    "sabor": "limao",
+    "titulo": "Salva e manda pra quem precisa.",
+    "texto": "Pura Fibra: 6 g de fibra, zero açúcar, zero caloria."
+   }
+  ],
+  "legenda": "5 momentos para ter uma Pura Fibra por perto. Qual é o seu? 👇\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #rotinasaudavel #zeroaçucar #bebidafuncional #bebawellness"
+ },
+ {
+  "id": "fi008_tangerina",
+  "tipo": "imagem",
+  "slides": [
+   {
+    "t": "capa",
+    "sabor": "tangerina",
+    "kicker": "DICA DO DIA",
+    "h1": "TROCA",
+    "h2": "O REFRI",
+    "sem_seta": true
+   }
+  ],
+  "legenda": "Troca o refri. 🍊\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #bemestar #zerocaloria #vidasaudavel #bebawellness"
+ },
+ {
+  "id": "fc009_morango",
+  "tipo": "carrossel",
+  "slides": [
+   {
+    "t": "capa",
+    "sabor": "morango",
+    "kicker": "ONDE ENCONTRAR",
+    "h1": "TÁ NO",
+    "h2": "OXXO"
+   },
+   {
+    "t": "produto",
+    "sabor": "morango",
+    "titulo": "Morango",
+    "chips": [
+     "Você encontra no OXXO",
+     "Zero açúcar",
+     "6 g de fibra"
+    ]
+   },
+   {
+    "t": "produto",
+    "sabor": "tangerina",
+    "titulo": "Tangerina",
+    "chips": [
+     "Você encontra no OXXO",
+     "Zero caloria",
+     "6 g de fibra"
+    ]
+   },
+   {
+    "t": "cta",
+    "sabor": "tangerina",
+    "titulo": "Passou no OXXO? Leva.",
+    "texto": "Morango e Tangerina na geladeira."
+   }
+  ],
+  "legenda": "Pura Fibra no OXXO: Morango e Tangerina te esperando. 📍\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n📍 Morango e Tangerina você encontra no OXXO.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #zeroaçucar #zerocaloria #fibras #bebawellness"
+ },
+ {
+  "id": "fi010_pessego",
+  "tipo": "imagem",
+  "slides": [
+   {
+    "t": "numero",
+    "sabor": "pessego",
+    "big": "0",
+    "label": "CALORIA",
+    "texto": "Pêssego gelado, leve de verdade."
+   }
+  ],
+  "legenda": "Zero caloria, todo o sabor. 🍑\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #rotinasaudavel #zeroaçucar #bebidafuncional #bebawellness"
+ },
+ {
+  "id": "fc011_limao",
+  "tipo": "carrossel",
+  "slides": [
+   {
+    "t": "capa",
+    "sabor": "limao",
+    "kicker": "PLANEJA AÍ",
+    "h1": "SUA SEMANA",
+    "h2": "COM SABOR"
+   },
+   {
+    "t": "lista",
+    "sabor": "limao",
+    "num": "SEG",
+    "titulo": "Limão",
+    "texto": "Começa a semana no leve."
+   },
+   {
+    "t": "lista",
+    "sabor": "tangerina",
+    "num": "QUA",
+    "titulo": "Tangerina",
+    "texto": "Meio da semana, ritmo mantido."
+   },
+   {
+    "t": "lista",
+    "sabor": "morango",
+    "num": "SEX",
+    "titulo": "Morango",
+    "texto": "Sextou sem açúcar."
+   },
+   {
+    "t": "lista",
+    "sabor": "pessego",
+    "num": "DOM",
+    "titulo": "Pêssego",
+    "texto": "Domingo gelado e leve."
+   },
+   {
+    "t": "cta",
+    "sabor": "pessego",
+    "titulo": "Salva e manda pra quem precisa.",
+    "texto": "Pura Fibra: 6 g de fibra, zero açúcar, zero caloria."
+   }
+  ],
+  "legenda": "Sua semana com sabor: um Pura Fibra para cada dia. 🗓️\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #bemestar #zerocaloria #vidasaudavel #bebawellness"
+ },
+ {
+  "id": "fi012_morango",
+  "tipo": "imagem",
+  "slides": [
+   {
+    "t": "produto",
+    "sabor": "morango",
+    "titulo": "Morango",
+    "chips": [
+     "Você encontra no OXXO",
+     "Zero açúcar",
+     "Complexo B"
+    ]
+   }
+  ],
+  "legenda": "Morango gelado no OXXO. 🍓\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n📍 Morango e Tangerina você encontra no OXXO.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #zeroaçucar #zerocaloria #fibras #bebawellness"
+ },
+ {
+  "id": "fc013_tangerina",
+  "tipo": "carrossel",
+  "slides": [
+   {
+    "t": "capa",
+    "sabor": "tangerina",
+    "kicker": "PARA LOJISTAS",
+    "h1": "QUER",
+    "h2": "REVENDER?"
+   },
+   {
+    "t": "lista",
+    "sabor": "limao",
+    "num": "1",
+    "titulo": "4 sabores no mix",
+    "texto": "Limão, tangerina, morango e pêssego."
+   },
+   {
+    "t": "lista",
+    "sabor": "tangerina",
+    "num": "2",
+    "titulo": "Zero açúcar com fibra",
+    "texto": "6 g de fibra e zero caloria."
+   },
+   {
+    "t": "lista",
+    "sabor": "morango",
+    "num": "3",
+    "titulo": "Garrafa de 400 ml",
+    "texto": "Prática para geladeira e balcão."
+   },
+   {
+    "t": "lista",
+    "sabor": "pessego",
+    "num": "4",
+    "titulo": "Marca já no OXXO",
+    "texto": "O consumidor já encontra na rua."
+   },
+   {
+    "t": "cta",
+    "sabor": "tangerina",
+    "titulo": "Chama no WhatsApp.",
+    "texto": "(11) 94764-6006",
+    "revenda": true
+   }
+  ],
+  "legenda": "Quer revender Pura Fibra? Fala com a CP Comercial. 📲\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n📍 Morango e Tangerina você encontra no OXXO.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #rotinasaudavel #zeroaçucar #bebidafuncional #bebawellness"
+ },
+ {
+  "id": "fi014_pessego",
+  "tipo": "imagem",
+  "slides": [
+   {
+    "t": "lineup",
+    "sabor": "pessego",
+    "titulo": "QUAL VOCÊ LEVA HOJE?",
+    "texto": "Limão, tangerina, morango ou pêssego."
+   }
+  ],
+  "legenda": "Pausa com sabor. 🍋\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #bemestar #zerocaloria #vidasaudavel #bebawellness"
+ },
+ {
+  "id": "fc015_limao",
+  "tipo": "carrossel",
+  "slides": [
+   {
+    "t": "capa",
+    "sabor": "limao",
+    "kicker": "DICA",
+    "h1": "SIRVA",
+    "h2": "GELADA"
+   },
+   {
+    "t": "lista",
+    "sabor": "limao",
+    "num": "1",
+    "titulo": "Geladeira",
+    "texto": "Deixa umas garrafas sempre prontas."
+   },
+   {
+    "t": "lista",
+    "sabor": "limao",
+    "num": "2",
+    "titulo": "Bolsa térmica",
+    "texto": "Leva gelada para a praia ou o parque."
+   },
+   {
+    "t": "lista",
+    "sabor": "limao",
+    "num": "3",
+    "titulo": "Com gelo",
+    "texto": "Copo, gelo e uma rodela de limão."
+   },
+   {
+    "t": "cta",
+    "sabor": "limao",
+    "titulo": "Salva e manda pra quem precisa.",
+    "texto": "Pura Fibra: 6 g de fibra, zero açúcar, zero caloria."
+   }
+  ],
+  "legenda": "Dica: Pura Fibra fica ainda melhor gelada. 🧊\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #zeroaçucar #zerocaloria #fibras #bebawellness"
+ },
+ {
+  "id": "fi016_morango",
+  "tipo": "imagem",
+  "slides": [
+   {
+    "t": "cta",
+    "sabor": "morango",
+    "titulo": "Quer revender Pura Fibra?",
+    "texto": "(11) 94764-6006",
+    "revenda": true
+   }
+  ],
+  "legenda": "Quer revender? Fala com a CP Comercial. 📲\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #rotinasaudavel #zeroaçucar #bebidafuncional #bebawellness"
+ },
+ {
+  "id": "fc017_pessego",
+  "tipo": "carrossel",
+  "slides": [
+   {
+    "t": "capa",
+    "sabor": "pessego",
+    "kicker": "COMBINAÇÕES",
+    "h1": "COMBINA",
+    "h2": "COM..."
+   },
+   {
+    "t": "produto",
+    "sabor": "limao",
+    "titulo": "Almoço",
+    "chips": [
+     "Limão",
+     "Leve",
+     "Sem açúcar"
+    ]
+   },
+   {
+    "t": "produto",
+    "sabor": "tangerina",
+    "titulo": "Café da tarde",
+    "chips": [
+     "Tangerina",
+     "Zero caloria",
+     "6 g de fibra"
+    ]
+   },
+   {
+    "t": "produto",
+    "sabor": "morango",
+    "titulo": "Pós-treino",
+    "chips": [
+     "Morango",
+     "6 g de fibra",
+     "Complexo B"
+    ]
+   },
+   {
+    "t": "produto",
+    "sabor": "pessego",
+    "titulo": "Noite de série",
+    "chips": [
+     "Pêssego",
+     "Zero açúcar",
+     "Gelado"
+    ]
+   },
+   {
+    "t": "cta",
+    "sabor": "pessego",
+    "titulo": "Salva e manda pra quem precisa.",
+    "texto": "Pura Fibra: 6 g de fibra, zero açúcar, zero caloria."
+   }
+  ],
+  "legenda": "Pura Fibra combina com o quê? Arrasta 👉\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #bemestar #zerocaloria #vidasaudavel #bebawellness"
+ },
+ {
+  "id": "fi018_tangerina",
+  "tipo": "imagem",
+  "slides": [
+   {
+    "t": "lista",
+    "sabor": "tangerina",
+    "num": "B",
+    "titulo": "Vitaminas do complexo B",
+    "texto": "B3, B5, B6 e B9. Zero açúcar."
+   }
+  ],
+  "legenda": "Vitaminas do complexo B na garrafa. 🍊\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n#purafibra #zeroaçucar #zerocaloria #fibras #bebawellness"
+ }
+]

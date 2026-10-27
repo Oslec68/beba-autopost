@@ -1,0 +1,114 @@
+name: Publicar Carrossel/Post @beba.wellness
+
+on:
+  schedule:
+    # Horário de Brasília = UTC-3  ->  16:10 (entre os Reels das 13:10 e 19:10)
+    - cron: "10 19 * * *"
+  workflow_dispatch:
+    inputs:
+      post_id:
+        description: "ID do item do feed (vazio = próximo da fila). Ex.: fc001_pessego"
+        required: false
+        default: ""
+      teste:
+        description: "Só gerar as imagens, sem publicar (true/false)"
+        required: false
+        default: "false"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: publicar   # mesmo grupo dos Reels: nunca roda junto (os dois usam o GitHub Pages)
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    # Mesmo interruptor dos Reels: AUTOPOST_ATIVO = sim liga os horários automáticos.
+    if: ${{ github.event_name == 'workflow_dispatch' || vars.AUTOPOST_ATIVO == 'sim' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Dependências
+        run: |
+          pip install -q playwright pillow
+          python -m playwright install --with-deps chromium
+
+      - name: Gerar imagens
+        run: |
+          if [ -n "${{ github.event.inputs.post_id }}" ]; then
+            python scripts/render_feed.py --id "${{ github.event.inputs.post_id }}"
+          else
+            python scripts/render_feed.py
+          fi
+          echo "POST_ID=$(python -c "import json;print(json.load(open('out/feed_next.json'))['id'])")" >> $GITHUB_ENV
+
+      - name: Preparar link público (GitHub Pages)
+        run: |
+          mkdir -p "site/feed/${POST_ID}"
+          cp out/feed/${POST_ID}/*.jpg "site/feed/${POST_ID}/"
+          echo "<!doctype html><title>beba.wellness media</title>" > site/index.html
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4
+
+      - name: Esperar as imagens ficarem acessíveis
+        run: |
+          BASE="${{ steps.deploy.outputs.page_url }}feed/${POST_ID}/"
+          echo "BASE_URL=$BASE" >> $GITHUB_ENV
+          for i in $(seq 1 30); do
+            if curl -sfI "${BASE}01.jpg" > /dev/null; then echo "ok: $BASE"; exit 0; fi
+            sleep 10
+          done
+          echo "Imagens não ficaram acessíveis em $BASE"; exit 1
+
+      - name: Publicar no Instagram
+        id: pub
+        if: github.event.inputs.teste != 'true'
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: python scripts/publish_feed.py "$BASE_URL"
+
+      - name: Salvar histórico
+        if: steps.pub.outcome == 'success'
+        run: |
+          git config user.name "beba-autopost"
+          git config user.email "actions@users.noreply.github.com"
+          git add state/posted_feed.json
+          git commit -m "Publicado ${POST_ID}" || exit 0
+          git pull --rebase -q && git push -q
+
+      - name: Aviso de sucesso
+        if: steps.pub.outcome == 'success'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          WHAPI_TOKEN: ${{ secrets.WHAPI_TOKEN }}
+          WHATSAPP_TO: ${{ secrets.WHATSAPP_TO }}
+        run: |
+          python scripts/notify.py "✅ @beba.wellness publicou ${POST_ID}: ${{ steps.pub.outputs.permalink }}"
+
+      - name: Aviso de falha
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          WHAPI_TOKEN: ${{ secrets.WHAPI_TOKEN }}
+          WHATSAPP_TO: ${{ secrets.WHATSAPP_TO }}
+        run: |
+          python scripts/notify.py "❌ Falhou o post do feed ${POST_ID:-} — veja ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

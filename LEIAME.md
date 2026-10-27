@@ -44,6 +44,13 @@ Vá em **Settings → Secrets and variables → Actions → New repository secre
 - **Pausar:** em Actions → Publicar Reel, clique em **⋯ → Disable workflow**.
 - **Publicar um post específico:** use Run workflow com `post_id` preenchido (ex.: `pf028_pessego`).
 
+## Carrosséis e posts de imagem (feed)
+- Todo dia às **16:10** o workflow **Publicar Carrossel/Post** publica o próximo item de `content/feed.json`, alternando carrossel e post de imagem. Somando com os 3 Reels, são **4 publicações por dia (28 por semana)**.
+- O banco tem **18 itens** (9 carrosséis e 9 imagens), o que dá 18 dias. As imagens são geradas na hora (1080x1350) a partir de `scripts/render_feed.py`, com as cores de cada sabor.
+- Tipos de slide: `capa`, `produto`, `lista`, `numero`, `vs`, `lineup`, `cta`. Para criar mais, edite `scripts/make_feed_bank.py` e rode `python scripts/make_feed_bank.py`.
+- Revisar tudo antes: `python scripts/render_feed.py --todos` gera todas as imagens em `out/feed/`.
+- Usa o mesmo interruptor `AUTOPOST_ATIVO` e os mesmos avisos de WhatsApp/Telegram. O histórico fica em `state/posted_feed.json`.
+
 ## Regras de conteúdo (já aplicadas no banco)
 - As alegações usadas são as do rótulo: 6 g de fibra (24% do VD), zero açúcar, zero caloria, vitaminas do complexo B, 400 ml.
 - "Você encontra no OXXO" aparece só em **Morango e Tangerina**.
