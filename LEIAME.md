@@ -38,7 +38,7 @@ Vá em **Settings → Secrets and variables → Actions → New repository secre
 ### 4. Teste
 1. Vá em **Actions → Publicar Reel @beba.wellness → Run workflow**, com **teste = true**. O vídeo é renderizado e publicado no link, mas não vai para o Instagram.
 2. Se der certo, rode de novo com **teste = false**. O primeiro Reel sai na hora.
-3. A partir daí, os 3 horários rodam sozinhos.
+3. **Ligar o automático:** vá em Settings → Secrets and variables → Actions → aba **Variables** → **New repository variable**, com nome `AUTOPOST_ATIVO` e valor `sim`. A partir daí, os 3 horários rodam sozinhos. Para pausar, troque o valor para `nao`.
 
 ## Uso no dia a dia
 - **Mais conteúdo:** edite a lista em `scripts/make_bank.py`, rode `python scripts/make_bank.py` e suba o `content/posts.json`.

@@ -28,6 +28,9 @@ concurrency:
 
 jobs:
   publicar:
+    # Interruptor: os horários automáticos só rodam com a variável AUTOPOST_ATIVO = sim
+    # (Settings → Secrets and variables → Actions → aba Variables). O botão "Run workflow" sempre funciona.
+    if: ${{ github.event_name == 'workflow_dispatch' || vars.AUTOPOST_ATIVO == 'sim' }}
     runs-on: ubuntu-latest
     timeout-minutes: 40
     environment:
