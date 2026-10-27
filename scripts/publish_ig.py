@@ -1,13 +1,15 @@
-"""Publica um Reel no Instagram pela API oficial (Instagram API with Instagram Login).
+"""Publica um Reel no Instagram pela API oficial (Instagram API com login do Facebook).
 Uso: python scripts/publish_ig.py <video_url_publica>
-Lê a legenda de out/next.json. Variáveis: IG_TOKEN (obrigatória), IG_API_VERSION (opcional).
+Lê a legenda de out/next.json. Variáveis: IG_TOKEN (token da Página, obrigatório),
+IG_USER_ID (opcional, padrão @beba.wellness), IG_API_VERSION (opcional).
 Ao publicar, registra em state/posted.json.
 """
 import json, os, sys, time, datetime, urllib.request, urllib.parse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VER = os.getenv("IG_API_VERSION", "v23.0")
-BASE = f"https://graph.instagram.com/{VER}"
+BASE = f"https://graph.facebook.com/{VER}"
+UID = os.getenv("IG_USER_ID") or "17841441162584913"  # @beba.wellness
 TOKEN = os.environ["IG_TOKEN"]
 
 def call(method, path, **params):
@@ -27,8 +29,8 @@ def call(method, path, **params):
 def main():
     video_url = sys.argv[1]
     nxt = json.load(open(os.path.join(ROOT, "out", "next.json"), encoding="utf-8"))
-    me = call("GET", "me", fields="user_id,username")
-    uid = me["user_id"]
+    uid = UID
+    me = call("GET", uid, fields="username")
     print("Conta:", me.get("username"))
     c = call("POST", f"{uid}/media", media_type="REELS", video_url=video_url,
              caption=nxt["legenda"], share_to_feed="true")
