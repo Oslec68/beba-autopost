@@ -19,5 +19,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          WHAPI_TOKEN: ${{ secrets.WHAPI_TOKEN }}
+          WHATSAPP_TO: ${{ secrets.WHATSAPP_TO }}
         run: |
           python scripts/notify.py "⚠️ O token do Instagram parou de funcionar. Gere um novo token da Página e atualize o secret IG_TOKEN."

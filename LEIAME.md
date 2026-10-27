@@ -6,8 +6,8 @@ O GitHub gera o vídeo, publica no Instagram pela API oficial e guarda o histór
 1. Às **09:10, 13:10 e 19:10** (horário de Brasília), o GitHub Actions pega o próximo post de `content/posts.json`.
 2. Ele renderiza o vídeo de 15 s com HyperFrames (template em `template/`) e uma música gerada na hora, diferente para cada post.
 3. O vídeo vai para um link público temporário (GitHub Pages) e é publicado como Reel pela API do Instagram.
-4. O post entra em `state/posted.json` e chega um aviso no Telegram (opcional).
-5. Toda segunda-feira o sistema confere se o token ainda funciona e avisa no Telegram se tiver caído.
+4. O post entra em `state/posted.json` e chega um aviso no WhatsApp e/ou Telegram (opcional).
+5. Toda segunda-feira o sistema confere se o token ainda funciona e avisa no WhatsApp/Telegram se tiver caído.
 
 Custo: **R$ 0**. Em repositório público, o GitHub Actions é gratuito e sem limite de minutos. O banco tem 42 posts, que dão 14 dias a 3 por dia.
 
@@ -28,6 +28,8 @@ Vá em **Settings → Secrets and variables → Actions → New repository secre
 | Nome | Valor |
 |---|---|
 | `IG_TOKEN` | o token da Página do passo 2 |
+| `WHAPI_TOKEN` | (opcional) token do Whapi, o mesmo do cenário do Make "Claude → WhatsApp (Whapi)" |
+| `WHATSAPP_TO` | (opcional) número que recebe os avisos, só dígitos com DDI e DDD (ex.: 5511999998888) |
 | `TELEGRAM_BOT_TOKEN` | (opcional) o mesmo bot do Radar Saudável |
 | `TELEGRAM_CHAT_ID` | (opcional) o seu chat |
 

@@ -106,6 +106,8 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          WHAPI_TOKEN: ${{ secrets.WHAPI_TOKEN }}
+          WHATSAPP_TO: ${{ secrets.WHATSAPP_TO }}
         run: |
           python scripts/notify.py "✅ @beba.wellness publicado: ${POST_ID} ${{ steps.pub.outputs.permalink }}"
 
@@ -114,5 +116,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          WHAPI_TOKEN: ${{ secrets.WHAPI_TOKEN }}
+          WHATSAPP_TO: ${{ secrets.WHATSAPP_TO }}
         run: |
           python scripts/notify.py "❌ Falhou a publicação ${POST_ID:-} — veja ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
