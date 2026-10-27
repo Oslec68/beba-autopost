@@ -1,13 +1,14 @@
-"""Renova o token de longa duração do Instagram (vale 60 dias; renovar com frequência).
-Imprime o novo token em stdout (o workflow grava no secret IG_TOKEN) e a validade em stderr."""
-import json, os, sys, urllib.request
+"""Verifica se o token da Página (IG_TOKEN) ainda funciona.
+Com login do Facebook, o token da Página gerado a partir de um token de longa duração não vence;
+este script só confere e falha (gerando aviso) se ele tiver sido revogado."""
+import json, os, sys, urllib.request, urllib.error
 
 tok = os.environ["IG_TOKEN"]
-url = "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=" + tok
+uid = os.getenv("IG_USER_ID") or "17841441162584913"
+url = f"https://graph.facebook.com/v23.0/{uid}?fields=username&access_token={tok}"
 try:
     with urllib.request.urlopen(url, timeout=60) as r:
         d = json.loads(r.read())
 except urllib.error.HTTPError as e:
-    sys.exit(f"ERRO ao renovar token: {e.code} {e.read().decode()[:300]}")
-print(f"Token renovado. Expira em {int(d.get('expires_in', 0)) // 86400} dias.", file=sys.stderr)
-print(d["access_token"])
+    sys.exit(f"ERRO: token inválido ou revogado: {e.code} {e.read().decode()[:300]}")
+print("Token OK para @" + d.get("username", "?"))
