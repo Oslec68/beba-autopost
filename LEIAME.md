@@ -7,7 +7,7 @@ O GitHub gera o vídeo, publica no Instagram pela API oficial e guarda o histór
 2. Ele renderiza o vídeo de 15 s com HyperFrames (template em `template/`) e uma música gerada na hora, diferente para cada post.
 3. O vídeo vai para um link público temporário (GitHub Pages) e é publicado como Reel pela API do Instagram.
 4. O post entra em `state/posted.json` e chega um aviso no Telegram (opcional).
-5. Toda segunda-feira o token do Instagram é renovado sozinho.
+5. Toda segunda-feira o sistema confere se o token ainda funciona e avisa no Telegram se tiver caído.
 
 Custo: **R$ 0**. Em repositório público, o GitHub Actions é gratuito e sem limite de minutos. O banco tem 42 posts, que dão 14 dias a 3 por dia.
 
@@ -18,20 +18,16 @@ Custo: **R$ 0**. Em repositório público, o GitHub Actions é gratuito e sem li
 2. Clique em **Add file → Upload files** e arraste **todo o conteúdo** desta pasta, incluindo a pasta `.github`.
 3. Vá em **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
-### 2. Token do Instagram (Meta)
-1. Entre em **developers.facebook.com → Meus apps → Criar app** e escolha o tipo **Outro → Empresa**.
-2. No app, adicione o produto **Instagram** e escolha **"Configuração da API com login do Instagram"**.
-3. Em **"Gerar tokens de acesso"**, clique em **Adicionar conta** e entre com a **@beba.wellness**.
-4. Autorize as permissões **instagram_business_basic** e **instagram_business_content_publish**.
-5. Clique em **Gerar token** e copie o token.
-   Normalmente não é preciso revisão da Meta para publicar na sua própria conta (como administrador ou testador do app).
+### 2. Token do Instagram (Meta) — feito em 27/10/2026
+A publicação usa a **API do Instagram com login do Facebook**: o `IG_TOKEN` é o **token da Página do Facebook** ligada à @beba.wellness (ID do Instagram `17841441162584913`, já fixo no código).
+- Gerado a partir de um token de usuário de **longa duração**, o token da Página **não vence**. Ele só cai se a senha do Facebook mudar, se o app for removido ou se a permissão for revogada.
+- Se cair: gere de novo o token da Página no Explorador da Graph API (permissões `instagram_basic`, `instagram_content_publish`, `pages_show_list`, `pages_read_engagement`), troque o token de usuário por um de longa duração e atualize o secret `IG_TOKEN`.
 
 ### 3. Secrets do GitHub
 Vá em **Settings → Secrets and variables → Actions → New repository secret**:
 | Nome | Valor |
 |---|---|
-| `IG_TOKEN` | o token do passo 2 |
-| `GH_PAT` | token do GitHub (Settings → Developer settings → Fine-grained tokens) com acesso só a este repositório e permissão **Secrets: Read and write**. Serve para renovar o IG_TOKEN sozinho |
+| `IG_TOKEN` | o token da Página do passo 2 |
 | `TELEGRAM_BOT_TOKEN` | (opcional) o mesmo bot do Radar Saudável |
 | `TELEGRAM_CHAT_ID` | (opcional) o seu chat |
 
