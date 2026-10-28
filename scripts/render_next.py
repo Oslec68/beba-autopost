@@ -20,6 +20,31 @@ def fit(text, maxpx, width, k):
 def load(p, default):
     return json.load(open(p, encoding="utf-8")) if os.path.exists(p) else default
 
+def escolher(pend):
+    """Primeiro post pendente que combina com o dia/hora reais (Brasília).
+    Evita "Segunda de novo?" numa terça ou "Almoço na rua?" às 22h.
+    O GitHub costuma atrasar o cron em horas, por isso vale a hora real, não a do agendamento."""
+    import datetime
+    agora = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-3)))
+    dia, hora = agora.weekday(), agora.hour
+    regras = load(os.path.join(ROOT, "content", "regras.json"), {})
+    def cabe(p):
+        r = regras.get(p["id"])
+        if not r:
+            return True
+        if "dias" in r and dia not in r["dias"]:
+            return False
+        if "horas" in r and not (r["horas"][0] <= hora < r["horas"][1]):
+            return False
+        return True
+    for p in pend:
+        if cabe(p):
+            print(f"Escolhido {p['id']} (dia {dia}, {hora}h)")
+            return p
+    livres = [p for p in pend if p["id"] not in regras]
+    print("AVISO: nenhum post combina com agora; usando o primeiro sem restrição")
+    return livres[0] if livres else pend[0]
+
 def main():
     posts = load(os.path.join(ROOT, "content", "posts.json"), [])
     state_p = os.path.join(ROOT, "state", "posted.json")
@@ -36,7 +61,7 @@ def main():
             post = next(p for p in posts if p["id"] == order[0])
             print("AVISO: banco esgotado, repetindo", post["id"])
         else:
-            post = pend[0]
+            post = escolher(pend)
     s = post["sabor"]; c = CORES[s]
     proj = os.path.join(ROOT, "build", post["id"])
     shutil.rmtree(proj, ignore_errors=True)
