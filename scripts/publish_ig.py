@@ -38,8 +38,15 @@ def main():
         extra["cover_url"] = sys.argv[2]
     else:
         extra["thumb_offset"] = str(nxt.get("capa_ms", 2800))
-    c = call("POST", f"{uid}/media", media_type="REELS", video_url=video_url,
-             caption=nxt["legenda"], share_to_feed="true", **extra)
+    try:
+        c = call("POST", f"{uid}/media", media_type="REELS", video_url=video_url,
+                 caption=nxt["legenda"], share_to_feed="true", **extra)
+    except SystemExit as e:
+        if "cover_url" not in extra:
+            raise
+        print("AVISO: cover_url recusada, usando thumb_offset.", e)
+        c = call("POST", f"{uid}/media", media_type="REELS", video_url=video_url, caption=nxt["legenda"],
+                 share_to_feed="true", thumb_offset=str(nxt.get("capa_ms", 2800)))
     cid = c["id"]
     for _ in range(60):  # até ~10 min
         st = call("GET", cid, fields="status_code,status")
