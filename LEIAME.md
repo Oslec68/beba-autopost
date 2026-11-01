@@ -55,3 +55,8 @@ Vá em **Settings → Secrets and variables → Actions → New repository secre
 - As alegações usadas são as do rótulo: 6 g de fibra (24% do VD), zero açúcar, zero caloria, vitaminas do complexo B, 400 ml.
 - "Você encontra no OXXO" aparece só em **Morango e Tangerina**.
 - Nunca aparece "Distribuidor Oficial". O rodapé é sempre "CP Comercial | WhatsApp (11) 94764-6006".
+
+## Formatos dos Reels e capa (01/11/2026)
+- Os Reels se alternam entre **5 formatos**: `vs` (Refri comum × Pura Fibra), `quiz` (pergunta com 3 opções), `lineup` (os 4 sabores), `checklist` e `rotina` (o modelo original). O sistema sempre usa o formato que está há mais tempo sem sair, então nunca saem dois vídeos seguidos com a mesma cara. Para fixar um formato num post, coloque `"formato": "quiz"` (por exemplo) nele em `content/posts.json`.
+- **Capa:** cada Reel agora sai com capa própria (o quadro em que título, gancho e garrafa já estão na tela), enviada ao Instagram como `cover_url`. Antes o Instagram usava o primeiro quadro do vídeo, que era só o fundo.
+- Templates em `template/*.html.tpl`; o momento da capa de cada formato fica em `FORMATOS` no `scripts/render_next.py`.

@@ -13,7 +13,7 @@
   #dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.55) 3px,transparent 4px);background-size:54px 54px;opacity:.5;}
   /* S1 */
   #s1{opacity:1;}
-  #clock{position:absolute;left:0;right:0;margin:0 auto;top:190px;width:fit-content;padding:26px 60px;border-radius:999px;background:$dark;color:#fff;text-align:center;font-size:${tagfs}px;letter-spacing:2px;}
+  #clock{position:absolute;left:0;right:0;margin:0 auto;top:270px;width:fit-content;padding:26px 60px;border-radius:999px;background:$dark;color:#fff;text-align:center;font-size:${tagfs}px;letter-spacing:2px;}
   #h1,#h2{position:absolute;left:0;right:0;text-align:center;line-height:1;letter-spacing:-5px;}
   #h1{top:450px;font-size:${h1fs}px;}
   #h2{top:650px;font-size:${h2fs}px;color:$acc;}

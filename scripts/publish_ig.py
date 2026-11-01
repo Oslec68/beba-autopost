@@ -32,8 +32,14 @@ def main():
     uid = UID
     me = call("GET", uid, fields="username")
     print("Conta:", me.get("username"))
+    # Capa: sem thumb_offset/cover_url o Instagram usa o quadro 0 (só o fundo, antes das animações).
+    extra = {}
+    if len(sys.argv) > 2 and sys.argv[2]:
+        extra["cover_url"] = sys.argv[2]
+    else:
+        extra["thumb_offset"] = str(nxt.get("capa_ms", 2800))
     c = call("POST", f"{uid}/media", media_type="REELS", video_url=video_url,
-             caption=nxt["legenda"], share_to_feed="true")
+             caption=nxt["legenda"], share_to_feed="true", **extra)
     cid = c["id"]
     for _ in range(60):  # até ~10 min
         st = call("GET", cid, fields="status_code,status")
@@ -52,7 +58,7 @@ def main():
     state_p = os.path.join(ROOT, "state", "posted.json")
     posted = json.load(open(state_p, encoding="utf-8")) if os.path.exists(state_p) else []
     posted = [x for x in posted if x["id"] != nxt["id"]]
-    posted.append({"id": nxt["id"], "media_id": media_id, "permalink": link,
+    posted.append({"id": nxt["id"], "formato": nxt.get("formato", "rotina"), "media_id": media_id, "permalink": link,
                    "quando": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")})
     json.dump(posted, open(state_p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("PUBLICADO", nxt["id"], link)

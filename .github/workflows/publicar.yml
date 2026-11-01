@@ -66,6 +66,9 @@ jobs:
         run: |
           mkdir -p site
           cp "out/${POST_ID}.mp4" "site/${POST_ID}.mp4"
+          # Capa do Reel: quadro em que título e garrafa já estão na tela
+          CAPA=$(python -c "import json;print(json.load(open('out/next.json')).get('capa_ms',2800)/1000)")
+          ffmpeg -loglevel error -y -ss "$CAPA" -i "out/${POST_ID}.mp4" -frames:v 1 -q:v 2 "site/${POST_ID}.jpg"
           echo "<!doctype html><title>beba.wellness media</title>" > site/index.html
 
       - uses: actions/configure-pages@v5
@@ -79,6 +82,7 @@ jobs:
         run: |
           URL="${{ steps.deploy.outputs.page_url }}${POST_ID}.mp4"
           echo "VIDEO_URL=$URL" >> $GITHUB_ENV
+          echo "COVER_URL=${{ steps.deploy.outputs.page_url }}${POST_ID}.jpg" >> $GITHUB_ENV
           for i in $(seq 1 30); do
             if curl -sfI "$URL" > /dev/null; then echo "ok: $URL"; exit 0; fi
             sleep 10
@@ -90,7 +94,7 @@ jobs:
         if: github.event.inputs.teste != 'true'
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
-        run: python scripts/publish_ig.py "$VIDEO_URL"
+        run: python scripts/publish_ig.py "$VIDEO_URL" "$COVER_URL"
 
       - name: Salvar histórico
         if: steps.pub.outcome == 'success'
