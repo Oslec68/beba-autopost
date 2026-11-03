@@ -105,6 +105,14 @@ jobs:
           git commit -m "Publicado ${POST_ID}" || exit 0
           git pull --rebase -q && git push -q
 
+      - name: Publicar também nos Stories
+        id: story
+        if: steps.pub.outcome == 'success'
+        continue-on-error: true   # se o Story falhar, o Reel já está publicado e nada mais é afetado
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: python scripts/publish_story.py "$VIDEO_URL"
+
       - name: Aviso de sucesso
         if: steps.pub.outcome == 'success'
         env:
@@ -113,7 +121,8 @@ jobs:
           WHAPI_TOKEN: ${{ secrets.WHAPI_TOKEN }}
           WHATSAPP_TO: ${{ secrets.WHATSAPP_TO }}
         run: |
-          python scripts/notify.py "✅ @beba.wellness publicado: ${POST_ID} ${{ steps.pub.outputs.permalink }}"
+          STORY="Story: ok"; [ "${{ steps.story.outcome }}" = "success" ] || STORY="Story: falhou"
+          python scripts/notify.py "✅ @beba.wellness publicado: ${POST_ID} ${{ steps.pub.outputs.permalink }} | ${STORY}"
 
       - name: Aviso de falha
         if: failure()
