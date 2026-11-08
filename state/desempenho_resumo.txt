@@ -1,6 +1,5 @@
 📊 @beba.wellness — desempenho dos Reels (31 medidos)
-Top 3: pf010_tangerina (6) | pf001_limao (4) | pf013_limao (4)
-Melhor formato: lineup (3.3) · pior: vs (2.5)
-Melhor sabor: morango · pior: pessego
-Pesos usados daqui pra frente: checklist 1.0, lineup 1.22, quiz 1.11, rotina 0.96, vs 0.92
-⚠️ Token sem a permissão instagram_manage_insights: medindo só curtidas e comentários.
+Top 3: pf028_pessego (47) | pf008_pessego (46) | pf020_pessego (45)
+Melhor formato: quiz (28.5) · pior: checklist (9.3)
+Melhor sabor: pessego · pior: morango
+Pesos usados daqui pra frente: checklist 0.7, lineup 0.85, quiz 1.6, rotina 0.72, vs 1.41
