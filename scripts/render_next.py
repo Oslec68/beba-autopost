@@ -3,6 +3,8 @@ Saída: out/<id>.mp4, out/<id>.txt (legenda) e out/next.json.
 Uso: python scripts/render_next.py [--id pf001_limao] [--no-render]
 """
 import json, os, shutil, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from revisor import revisar_post
 from string import Template
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -45,7 +47,16 @@ def escolher_formato(post, posted):
     ultimo = {f: -1 for f in ORDEM}
     for i, x in enumerate(posted):
         ultimo[x.get("formato", "rotina")] = i
-    return min(ORDEM, key=lambda f: (ultimo[f], ORDEM.index(f)))
+    # Ciclo de feedback: state/desempenho.json (gerado toda semana pelo desempenho.py) dá um peso a
+    # cada formato. Quem rende mais volta mais rápido; sem dados, peso 1 = rodízio igual ao original.
+    pesos = load(os.path.join(ROOT, "state", "desempenho.json"), {}).get("pesos", {})
+    n = len(posted)
+    def prioridade(f):
+        espera = n - ultimo[f]  # posts desde a última vez que o formato saiu
+        if espera <= 1:
+            return (-1, ORDEM.index(f))  # nunca dois seguidos
+        return (-(espera * pesos.get(f, 1.0)), ORDEM.index(f))
+    return min(ORDEM, key=prioridade)
 
 def load(p, default):
     return json.load(open(p, encoding="utf-8")) if os.path.exists(p) else default
@@ -81,14 +92,25 @@ def main():
     posted = load(state_p, [])
     done = {x["id"] for x in posted}
     want = sys.argv[sys.argv.index("--id") + 1] if "--id" in sys.argv else None
+    # Revisor automático: post com problema de texto/regra é pulado e avisado.
+    bloqueados = {}
+    for p in posts:
+        e = revisar_post(p)
+        if e:
+            bloqueados[p["id"]] = e
+            print(f"REVISOR barrou {p['id']}: " + "; ".join(e))
     if want:
         post = next(p for p in posts if p["id"] == want)
+        if want in bloqueados and "--forcar" not in sys.argv:
+            raise SystemExit(f"REVISOR reprovou {want}: " + "; ".join(bloqueados[want]) + " (use --forcar para ignorar)")
     else:
+        posts = [p for p in posts if p["id"] not in bloqueados]
         pend = [p for p in posts if p["id"] not in done]
         if not pend:
             # banco esgotado: recomeça o ciclo pelo post publicado há mais tempo
             order = [x["id"] for x in posted]
-            post = next(p for p in posts if p["id"] == order[0])
+            ids = {p["id"]: p for p in posts}
+            post = next(ids[i] for i in order if i in ids)
             print("AVISO: banco esgotado, repetindo", post["id"])
         else:
             post = escolher(pend)
@@ -125,7 +147,8 @@ def main():
     out = os.path.join(ROOT, "out"); os.makedirs(out, exist_ok=True)
     mp4 = os.path.join(out, post["id"] + ".mp4")
     open(os.path.join(out, post["id"] + ".txt"), "w", encoding="utf-8").write(post["legenda"])
-    json.dump({"id": post["id"], "mp4": mp4, "legenda": post["legenda"], "formato": formato, "capa_ms": F["capa"]},
+    json.dump({"id": post["id"], "mp4": mp4, "legenda": post["legenda"], "formato": formato, "capa_ms": F["capa"],
+               "bloqueados": sorted(bloqueados)},
               open(os.path.join(out, "next.json"), "w", encoding="utf-8"), ensure_ascii=False)
     print("Formato:", formato, "| capa em", F["capa"], "ms")
     if "--no-render" not in sys.argv:
