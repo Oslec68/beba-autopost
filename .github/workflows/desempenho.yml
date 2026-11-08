@@ -1,0 +1,57 @@
+name: Medir desempenho @beba.wellness
+
+# Ciclo de feedback: toda segunda mede os Reels publicados, grava state/desempenho.json
+# (o render_next.py passa a usar mais os formatos que rendem mais) e manda o resumo no WhatsApp/Telegram.
+on:
+  schedule:
+    - cron: "37 13 * * 1"   # toda segunda, 10:37 de Brasília
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: desempenho
+  cancel-in-progress: false
+
+jobs:
+  medir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Medir Reels
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: python scripts/desempenho.py
+
+      - name: Salvar
+        run: |
+          git config user.name "beba-autopost"
+          git config user.email "actions@users.noreply.github.com"
+          git add state/desempenho.json state/desempenho_resumo.txt
+          git commit -m "Desempenho $(date -u +%F)" || exit 0
+          git pull --rebase -q && git push -q
+
+      - name: Enviar resumo
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          WHAPI_TOKEN: ${{ secrets.WHAPI_TOKEN }}
+          WHATSAPP_TO: ${{ secrets.WHATSAPP_TO }}
+        run: python scripts/notify.py "$(cat state/desempenho_resumo.txt)"
+
+      - name: Aviso de falha
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          WHAPI_TOKEN: ${{ secrets.WHAPI_TOKEN }}
+          WHATSAPP_TO: ${{ secrets.WHATSAPP_TO }}
+        run: |
+          python scripts/notify.py "❌ Falhou a medição de desempenho — veja ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

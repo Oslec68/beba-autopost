@@ -71,6 +71,10 @@ jobs:
           ffmpeg -loglevel error -y -ss "$CAPA" -i "out/${POST_ID}.mp4" -frames:v 1 -q:v 2 "site/${POST_ID}.jpg"
           echo "<!doctype html><title>beba.wellness media</title>" > site/index.html
 
+      - name: Revisor automático (vídeo)
+        # Confere duração, áudio e se a capa não saiu vazia. Reprovou = não publica e chega o aviso de falha.
+        run: python scripts/revisor.py --video "out/${POST_ID}.mp4" "site/${POST_ID}.jpg"
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -122,7 +126,8 @@ jobs:
           WHATSAPP_TO: ${{ secrets.WHATSAPP_TO }}
         run: |
           STORY="Story: ok"; [ "${{ steps.story.outcome }}" = "success" ] || STORY="Story: falhou"
-          python scripts/notify.py "✅ @beba.wellness publicado: ${POST_ID} ${{ steps.pub.outputs.permalink }} | ${STORY}"
+          BLOQ=$(python -c "import json;b=json.load(open('out/next.json')).get('bloqueados',[]);print(' | ⚠️ Revisor barrou: '+', '.join(b) if b else '')")
+          python scripts/notify.py "✅ @beba.wellness publicado: ${POST_ID} ${{ steps.pub.outputs.permalink }} | ${STORY}${BLOQ}"
 
       - name: Aviso de falha
         if: failure()
