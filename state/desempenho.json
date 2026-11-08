@@ -1,13 +1,13 @@
 {
- "atualizado": "2026-11-08T16:18:34+00:00",
+ "atualizado": "2026-11-08T16:49:46+00:00",
  "metricas_completas": false,
- "nota_media": 2.8,
+ "nota_media": 2.7,
  "pesos": {
-  "rotina": 0.93,
-  "vs": 0.89,
-  "quiz": 1.43,
-  "lineup": 1.18,
-  "checklist": 0.96
+  "rotina": 0.96,
+  "vs": 0.92,
+  "quiz": 1.11,
+  "lineup": 1.22,
+  "checklist": 1.0
  },
  "por_formato": {
   "rotina": {
@@ -19,8 +19,8 @@
    "media": 2.5
   },
   "quiz": {
-   "n": 3,
-   "media": 4.0
+   "n": 4,
+   "media": 3.0
   },
   "lineup": {
    "n": 3,
@@ -45,8 +45,8 @@
    "media": 3.0
   },
   "pessego": {
-   "n": 7,
-   "media": 2.6
+   "n": 8,
+   "media": 2.2
   }
  },
  "posts": [
@@ -346,6 +346,16 @@
    "formato": "vs",
    "permalink": "https://www.instagram.com/reel/DfdA0QHjCay/",
    "quando": "2026-11-07T20:13:42+00:00",
+   "nota": 0,
+   "likes": 0,
+   "comments": 0
+  },
+  {
+   "id": "pf032_pessego",
+   "sabor": "pessego",
+   "formato": "quiz",
+   "permalink": "https://www.instagram.com/reel/DffNmicjeDr/",
+   "quando": "2026-11-08T16:43:51+00:00",
    "nota": 0,
    "likes": 0,
    "comments": 0
