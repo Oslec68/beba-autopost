@@ -32,7 +32,7 @@ jobs:
     timeout-minutes: 30
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deploy.outputs.page_url || steps.deploy2.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -66,10 +66,19 @@ jobs:
           path: site
       - id: deploy
         uses: actions/deploy-pages@v4
+        continue-on-error: true   # o GitHub Pages às vezes recusa ("try again later"): tenta de novo abaixo
+
+      - name: Esperar antes de tentar o deploy de novo
+        if: steps.deploy.outcome == 'failure'
+        run: sleep 90
+
+      - id: deploy2
+        if: steps.deploy.outcome == 'failure'
+        uses: actions/deploy-pages@v4
 
       - name: Esperar as imagens ficarem acessíveis
         run: |
-          BASE="${{ steps.deploy.outputs.page_url }}feed/${POST_ID}/"
+          BASE="${{ steps.deploy.outputs.page_url || steps.deploy2.outputs.page_url }}feed/${POST_ID}/"
           echo "BASE_URL=$BASE" >> $GITHUB_ENV
           for i in $(seq 1 30); do
             if curl -sfI "${BASE}01.jpg" > /dev/null; then echo "ok: $BASE"; exit 0; fi
@@ -91,7 +100,12 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add state/posted_feed.json
           git commit -m "Publicado ${POST_ID}" || exit 0
-          git pull --rebase -q && git push -q
+          # até 4 tentativas: se o push falhar, o post já publicado repetiria no dia seguinte
+          for i in 1 2 3 4; do
+            git pull --rebase -q && git push -q && exit 0
+            echo "push falhou (tentativa $i), repetindo..."; sleep 15
+          done
+          exit 1
 
       - name: Aviso de sucesso
         if: steps.pub.outcome == 'success'
