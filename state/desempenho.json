@@ -1,52 +1,52 @@
 {
- "atualizado": "2026-11-09T23:08:41+00:00",
+ "atualizado": "2026-11-16T23:00:43+00:00",
  "metricas_completas": true,
- "nota_media": 13.3,
+ "nota_media": 13.1,
  "pesos": {
-  "rotina": 0.74,
-  "vs": 1.33,
+  "rotina": 0.68,
+  "vs": 1.15,
   "quiz": 1.6,
   "lineup": 0.72,
-  "checklist": 0.6
+  "checklist": 0.78
  },
  "por_formato": {
   "rotina": {
-   "n": 17,
-   "media": 9.8
+   "n": 21,
+   "media": 8.9
   },
   "vs": {
-   "n": 5,
-   "media": 17.6
+   "n": 11,
+   "media": 15.0
   },
   "quiz": {
-   "n": 5,
-   "media": 28.2
+   "n": 11,
+   "media": 22.9
   },
   "lineup": {
-   "n": 4,
-   "media": 9.5
+   "n": 7,
+   "media": 9.4
   },
   "checklist": {
-   "n": 4,
-   "media": 7.8
+   "n": 6,
+   "media": 10.2
   }
  },
  "por_sabor": {
   "limao": {
-   "n": 9,
-   "media": 12.4
+   "n": 17,
+   "media": 11.1
   },
   "tangerina": {
-   "n": 8,
-   "media": 10.0
+   "n": 13,
+   "media": 10.9
   },
   "morango": {
-   "n": 9,
-   "media": 7.7
+   "n": 13,
+   "media": 11.7
   },
   "pessego": {
-   "n": 9,
-   "media": 22.6
+   "n": 13,
+   "media": 19.1
   }
  },
  "posts": [
@@ -93,6 +93,48 @@
    "saved": 0
   },
   {
+   "id": "pf064_tangerina",
+   "sabor": "tangerina",
+   "formato": "quiz",
+   "permalink": "https://www.instagram.com/reel/DfvpH2liLny/",
+   "quando": "2026-11-15T01:52:29+00:00",
+   "nota": 35,
+   "views": 35,
+   "reach": 29,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf057_morango",
+   "sabor": "morango",
+   "formato": "vs",
+   "permalink": "https://www.instagram.com/reel/DfsZWgrlZ4K/",
+   "quando": "2026-11-13T19:36:36+00:00",
+   "nota": 27,
+   "views": 25,
+   "reach": 19,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf065_morango",
+   "sabor": "morango",
+   "formato": "quiz",
+   "permalink": "https://www.instagram.com/reel/DfyOtX1gAH4/",
+   "quando": "2026-11-16T01:59:14+00:00",
+   "nota": 24,
+   "views": 24,
+   "reach": 22,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
    "id": "pf030_tangerina",
    "sabor": "tangerina",
    "formato": "quiz",
@@ -112,10 +154,38 @@
    "formato": "lineup",
    "permalink": "https://www.instagram.com/reel/DfOIbyrCfCK/",
    "quando": "2026-11-02T01:31:38+00:00",
-   "nota": 20,
-   "views": 18,
-   "reach": 11,
+   "nota": 21,
+   "views": 19,
+   "reach": 12,
    "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf059_limao",
+   "sabor": "limao",
+   "formato": "quiz",
+   "permalink": "https://www.instagram.com/reel/DfspnEFoX37/",
+   "quando": "2026-11-13T21:58:45+00:00",
+   "nota": 21,
+   "views": 19,
+   "reach": 19,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf001_limao",
+   "sabor": "limao",
+   "formato": "rotina",
+   "permalink": "https://www.instagram.com/reel/DfAmHCLDNwq/",
+   "quando": "2026-10-27T19:21:24+00:00",
+   "nota": 20,
+   "views": 16,
+   "reach": 4,
+   "likes": 2,
    "comments": 0,
    "shares": 0,
    "saved": 0
@@ -130,20 +200,6 @@
    "views": 19,
    "reach": 16,
    "likes": 0,
-   "comments": 0,
-   "shares": 0,
-   "saved": 0
-  },
-  {
-   "id": "pf001_limao",
-   "sabor": "limao",
-   "formato": "rotina",
-   "permalink": "https://www.instagram.com/reel/DfAmHCLDNwq/",
-   "quando": "2026-10-27T19:21:24+00:00",
-   "nota": 17,
-   "views": 13,
-   "reach": 4,
-   "likes": 2,
    "comments": 0,
    "shares": 0,
    "saved": 0
@@ -177,6 +233,34 @@
    "saved": 0
   },
   {
+   "id": "pf049_morango",
+   "sabor": "morango",
+   "formato": "quiz",
+   "permalink": "https://www.instagram.com/reel/DfnPTgiGsiN/",
+   "quando": "2026-11-11T19:32:38+00:00",
+   "nota": 16,
+   "views": 14,
+   "reach": 12,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf063_limao",
+   "sabor": "limao",
+   "formato": "vs",
+   "permalink": "https://www.instagram.com/reel/Dfxss_WjMfq/",
+   "quando": "2026-11-15T21:01:55+00:00",
+   "nota": 16,
+   "views": 16,
+   "reach": 15,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
    "id": "pf004_pessego",
    "sabor": "pessego",
    "formato": "rotina",
@@ -185,6 +269,20 @@
    "nota": 15,
    "views": 15,
    "reach": 10,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf050_pessego",
+   "sabor": "pessego",
+   "formato": "checklist",
+   "permalink": "https://www.instagram.com/reel/Dfuy1IVDoAp/",
+   "quando": "2026-11-14T17:57:44+00:00",
+   "nota": 15,
+   "views": 15,
+   "reach": 15,
    "likes": 0,
    "comments": 0,
    "shares": 0,
@@ -247,6 +345,34 @@
    "saved": 0
   },
   {
+   "id": "pf037_limao",
+   "sabor": "limao",
+   "formato": "vs",
+   "permalink": "https://www.instagram.com/reel/DffnWCkERIk/",
+   "quando": "2026-11-08T20:28:45+00:00",
+   "nota": 12,
+   "views": 8,
+   "reach": 8,
+   "likes": 2,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf062_pessego",
+   "sabor": "pessego",
+   "formato": "vs",
+   "permalink": "https://www.instagram.com/reel/DfvFkxImUVV/",
+   "quando": "2026-11-14T20:41:34+00:00",
+   "nota": 12,
+   "views": 12,
+   "reach": 11,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
    "id": "pf002_tangerina",
    "sabor": "tangerina",
    "formato": "rotina",
@@ -289,15 +415,29 @@
    "saved": 0
   },
   {
-   "id": "pf037_limao",
-   "sabor": "limao",
-   "formato": "vs",
-   "permalink": "https://www.instagram.com/reel/DffnWCkERIk/",
-   "quando": "2026-11-08T20:28:45+00:00",
+   "id": "pf036_pessego",
+   "sabor": "pessego",
+   "formato": "lineup",
+   "permalink": "https://www.instagram.com/reel/DffV3NyGQXL/",
+   "quando": "2026-11-08T17:55:59+00:00",
    "nota": 10,
-   "views": 8,
-   "reach": 8,
-   "likes": 1,
+   "views": 4,
+   "reach": 2,
+   "likes": 3,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf038_tangerina",
+   "sabor": "tangerina",
+   "formato": "quiz",
+   "permalink": "https://www.instagram.com/reel/DfgLaiDkUsH/",
+   "quando": "2026-11-09T01:43:51+00:00",
+   "nota": 10,
+   "views": 6,
+   "reach": 5,
+   "likes": 2,
    "comments": 0,
    "shares": 0,
    "saved": 0
@@ -312,6 +452,20 @@
    "views": 7,
    "reach": 6,
    "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf039_morango",
+   "sabor": "morango",
+   "formato": "checklist",
+   "permalink": "https://www.instagram.com/reel/DfiY3CgDQv8/",
+   "quando": "2026-11-09T22:19:57+00:00",
+   "nota": 9,
+   "views": 5,
+   "reach": 3,
+   "likes": 2,
    "comments": 0,
    "shares": 0,
    "saved": 0
@@ -359,11 +513,25 @@
    "saved": 0
   },
   {
-   "id": "pf038_tangerina",
+   "id": "pf047_limao",
+   "sabor": "limao",
+   "formato": "vs",
+   "permalink": "https://www.instagram.com/reel/DflWUohjyt9/",
+   "quando": "2026-11-11T01:55:28+00:00",
+   "nota": 8,
+   "views": 6,
+   "reach": 4,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf056_tangerina",
    "sabor": "tangerina",
-   "formato": "quiz",
-   "permalink": "https://www.instagram.com/reel/DfgLaiDkUsH/",
-   "quando": "2026-11-09T01:43:51+00:00",
+   "formato": "lineup",
+   "permalink": "https://www.instagram.com/reel/DfqkyU_mVDK/",
+   "quando": "2026-11-13T02:38:04+00:00",
    "nota": 8,
    "views": 6,
    "reach": 5,
@@ -443,6 +611,62 @@
    "saved": 0
   },
   {
+   "id": "pf040_pessego",
+   "sabor": "pessego",
+   "formato": "rotina",
+   "permalink": "https://www.instagram.com/reel/DfimDrlCtZJ/",
+   "quando": "2026-11-10T00:15:13+00:00",
+   "nota": 7,
+   "views": 3,
+   "reach": 2,
+   "likes": 2,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf045_morango",
+   "sabor": "morango",
+   "formato": "vs",
+   "permalink": "https://www.instagram.com/reel/Dfj5Rm3gIz0/",
+   "quando": "2026-11-10T12:22:23+00:00",
+   "nota": 7,
+   "views": 3,
+   "reach": 2,
+   "likes": 2,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf025_limao",
+   "sabor": "limao",
+   "formato": "quiz",
+   "permalink": "https://www.instagram.com/reel/DfkrgLNFFdv/",
+   "quando": "2026-11-10T19:41:25+00:00",
+   "nota": 7,
+   "views": 3,
+   "reach": 2,
+   "likes": 2,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf041_limao",
+   "sabor": "limao",
+   "formato": "lineup",
+   "permalink": "https://www.instagram.com/reel/DfxdXXhDBIN/",
+   "quando": "2026-11-15T18:47:56+00:00",
+   "nota": 7,
+   "views": 7,
+   "reach": 5,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
    "id": "pf012_pessego",
    "sabor": "pessego",
    "formato": "rotina",
@@ -499,6 +723,62 @@
    "saved": 0
   },
   {
+   "id": "pf042_tangerina",
+   "sabor": "tangerina",
+   "formato": "lineup",
+   "permalink": "https://www.instagram.com/reel/Dfk6HpqDlsd/",
+   "quando": "2026-11-10T21:49:03+00:00",
+   "nota": 6,
+   "views": 4,
+   "reach": 3,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf051_limao",
+   "sabor": "limao",
+   "formato": "rotina",
+   "permalink": "https://www.instagram.com/reel/Dfnk-XmmQfS/",
+   "quando": "2026-11-11T22:42:01+00:00",
+   "nota": 6,
+   "views": 2,
+   "reach": 1,
+   "likes": 2,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf052_tangerina",
+   "sabor": "tangerina",
+   "formato": "checklist",
+   "permalink": "https://www.instagram.com/reel/DfoCSoMiKRL/",
+   "quando": "2026-11-12T02:58:07+00:00",
+   "nota": 6,
+   "views": 2,
+   "reach": 1,
+   "likes": 2,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf055_limao",
+   "sabor": "limao",
+   "formato": "quiz",
+   "permalink": "https://www.instagram.com/reel/DfqGs57DtL6/",
+   "quando": "2026-11-12T22:15:11+00:00",
+   "nota": 6,
+   "views": 4,
+   "reach": 3,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
    "id": "pf006_tangerina",
    "sabor": "tangerina",
    "formato": "rotina",
@@ -513,25 +793,39 @@
    "saved": 0
   },
   {
-   "id": "pf036_pessego",
+   "id": "pf054_pessego",
    "sabor": "pessego",
-   "formato": "lineup",
-   "permalink": "https://www.instagram.com/reel/DffV3NyGQXL/",
-   "quando": "2026-11-08T17:55:59+00:00",
-   "nota": 4,
-   "views": 2,
-   "reach": 1,
+   "formato": "vs",
+   "permalink": "https://www.instagram.com/reel/Dfp2WmOCeif/",
+   "quando": "2026-11-12T19:52:10+00:00",
+   "nota": 5,
+   "views": 3,
+   "reach": 2,
    "likes": 1,
    "comments": 0,
    "shares": 0,
    "saved": 0
   },
   {
-   "id": "pf039_morango",
-   "sabor": "morango",
-   "formato": "checklist",
-   "permalink": "https://www.instagram.com/reel/DfiY3CgDQv8/",
-   "quando": "2026-11-09T22:19:57+00:00",
+   "id": "pf060_tangerina",
+   "sabor": "tangerina",
+   "formato": "rotina",
+   "permalink": "https://www.instagram.com/reel/DftHz7TjybO/",
+   "quando": "2026-11-14T02:22:26+00:00",
+   "nota": 5,
+   "views": 5,
+   "reach": 5,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0
+  },
+  {
+   "id": "pf043_limao",
+   "sabor": "limao",
+   "formato": "rotina",
+   "permalink": "https://www.instagram.com/reel/Df0X4SdDfkF/",
+   "quando": "2026-11-16T21:57:43+00:00",
    "nota": 0,
    "views": 0,
    "reach": 0,
