@@ -3,8 +3,9 @@ name: Publicar Reel @beba.wellness
 on:
   schedule:
     # Horário de Brasília = UTC-3  ->  09:10, 13:10 e 19:10
+    # 13:10 só de segunda a sexta: sábado e domingo à tarde é a vez do carrossel de matéria (15h, via Metricool)
     - cron: "10 12 * * *"
-    - cron: "10 16 * * *"
+    - cron: "10 16 * * 1-5"
     - cron: "10 22 * * *"
   workflow_dispatch:
     inputs:

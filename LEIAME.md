@@ -84,3 +84,24 @@ flowchart LR
 - **Revisor do vídeo**: depois de renderizar, confere duração (10–20 s), áudio e se a capa não saiu vazia. Reprovou, não publica e chega o aviso de falha.
 - **Ciclo de feedback** (`scripts/desempenho.py`, workflow **Medir desempenho**, toda segunda 10:37): mede cada Reel e dá nota (views + 2× curtidas/comentários + 5× salvamentos/compartilhamentos). O formato que rende mais volta mais rápido no rodízio (peso entre 0,6 e 1,6; só conta com 3+ Reels do formato). Nenhum formato some e nunca saem dois iguais seguidos. O resumo (top 3, melhor/pior formato e sabor) chega no WhatsApp/Telegram.
 - **Permissão:** para medir views, salvamentos e compartilhamentos, o token precisa de `instagram_manage_insights`. Sem ela, o sistema mede só curtidas e comentários e avisa no resumo.
+
+## Carrossel de matéria (19/11/2026)
+Formato aprovado pelo Celso: **gancho com a matéria → explicação com a fonte → produto**. Sai 2 vezes por semana, **sábado e domingo às 15h** (a faixa que mais alcança), agendado no Metricool. Nesses dias o Reel das 13:10 não sai, então o total da semana não aumenta.
+
+```mermaid
+flowchart LR
+  A[Segunda: Radar Saudável + busca de estudos<br/>sobre intestino e fibras] --> B[Escolhe 2 matérias<br/>com médico ou estudo]
+  B --> C[content/materias/ID.json<br/>manchete, 3-4 pontos, fonte]
+  C --> D[scripts/render_materia.py<br/>3 slides 1080x1350]
+  D --> E[Drive + Metricool<br/>sáb e dom 15h]
+  E --> F[Segunda seguinte: alcance,<br/>comentários e salvamentos]
+  F --> G[(content/materias/historico.json)]
+  G --> B
+```
+
+- **Slide 1:** manchete + subtítulo + "Estudo publicado na …".
+- **Slide 2:** "O que o estudo mostra", 3 ou 4 pontos curtos e a fonte original (autor, revista, ano).
+- **Slide 3:** "Um jeito gostoso de repor as fibras do dia", os 4 sabores e o rodapé da CP.
+- **Legenda:** gancho → o que o estudo mostrou → "E você, conhece um jeito fácil e gostoso de repor suas fibras?" → Pura Fibra (6 g de fibra, zero açúcar, zero caloria, OXXO) → revenda → hashtags.
+- O texto não promete efeito do produto: mostra o estudo e apresenta a garrafa. Sem etiqueta de IA (é arte gráfica com fonte real).
+- Gerar à mão: `python scripts/render_materia.py content/materias/<id>.json` → `out/materias/<id>/`.
