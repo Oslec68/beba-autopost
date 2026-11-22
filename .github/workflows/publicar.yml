@@ -132,6 +132,16 @@ jobs:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
         run: python scripts/publish_story.py "$VIDEO_URL"
 
+      - name: Publicar também no Facebook (Reels da Página)
+        id: fb
+        # Interruptor próprio: só roda com a variável FB_REELS_ATIVO = sim (o token precisa de pages_manage_posts)
+        if: steps.pub.outcome == 'success' && vars.FB_REELS_ATIVO == 'sim'
+        continue-on-error: true   # se o Facebook falhar, o Reel do Instagram já está publicado e nada mais é afetado
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          FB_PAGE_ID: ${{ vars.FB_PAGE_ID }}
+        run: python scripts/publish_fb_reel.py "$VIDEO_URL"
+
       - name: Aviso de sucesso
         if: steps.pub.outcome == 'success'
         env:
@@ -141,8 +151,13 @@ jobs:
           WHATSAPP_TO: ${{ secrets.WHATSAPP_TO }}
         run: |
           STORY="Story: ok"; [ "${{ steps.story.outcome }}" = "success" ] || STORY="Story: falhou"
+          FB=""
+          case "${{ steps.fb.outcome }}" in
+            success) FB=" | Facebook: ${{ steps.fb.outputs.fb_link }}" ;;
+            failure) FB=" | Facebook: falhou" ;;
+          esac
           BLOQ=$(python -c "import json;b=json.load(open('out/next.json')).get('bloqueados',[]);print(' | ⚠️ Revisor barrou: '+', '.join(b) if b else '')")
-          python scripts/notify.py "✅ @beba.wellness publicado: ${POST_ID} ${{ steps.pub.outputs.permalink }} | ${STORY}${BLOQ}"
+          python scripts/notify.py "✅ @beba.wellness publicado: ${POST_ID} ${{ steps.pub.outputs.permalink }} | ${STORY}${FB}${BLOQ}"
 
       - name: Aviso de falha
         if: failure()
