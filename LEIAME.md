@@ -105,3 +105,12 @@ flowchart LR
 - **Legenda:** gancho → o que o estudo mostrou → "E você, conhece um jeito fácil e gostoso de repor suas fibras?" → Pura Fibra (6 g de fibra, zero açúcar, zero caloria, OXXO) → revenda → hashtags.
 - O texto não promete efeito do produto: mostra o estudo e apresenta a garrafa. Sem etiqueta de IA (é arte gráfica com fonte real).
 - Gerar à mão: `python scripts/render_materia.py content/materias/<id>.json` → `out/materias/<id>/`.
+
+## Reels também no Facebook (22/11/2026)
+Cada Reel do Instagram pode sair também como **Reel na Página do Facebook** ligada à @beba.wellness, com a mesma legenda. Usa o mesmo `IG_TOKEN` (que já é o token da Página), sem chave nova.
+
+- **Permissão:** o token precisa de `pages_manage_posts`, além das que já usa. Gere de novo o token da Página no Explorador da Graph API marcando também essa permissão (mesmo passo a passo da seção 2) e atualize o secret `IG_TOKEN`.
+- **Ligar:** em Settings → Secrets and variables → Actions → aba **Variables**, crie `FB_REELS_ATIVO` com valor `sim`. Para desligar, troque para `nao`. Desligado, nada muda no Instagram.
+- **Opcional:** `FB_PAGE_ID` (variável) com o ID da Página. Sem ele, o sistema descobre a Página pelo próprio token.
+- Se o Facebook falhar, o Reel do Instagram já saiu e nada mais é afetado. O aviso no WhatsApp/Telegram mostra "Facebook: <link>" ou "Facebook: falhou".
+- Script: `scripts/publish_fb_reel.py` (início → upload pelo link do GitHub Pages → publicação → espera ficar pronto).
