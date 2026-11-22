@@ -1,0 +1,20 @@
+name: Checar permissao do Facebook
+on: workflow_dispatch
+jobs:
+  checar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Perguntar ao Facebook as permissoes do IG_TOKEN
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request, urllib.parse
+          t = os.environ["IG_TOKEN"]
+          q = urllib.parse.urlencode({"input_token": t, "access_token": t})
+          d = json.load(urllib.request.urlopen("https://graph.facebook.com/v23.0/debug_token?" + q))["data"]
+          s = d.get("scopes", [])
+          print("Valido:", d.get("is_valid"), "| Expira:", d.get("expires_at") or "nunca")
+          print("Permissoes:", ", ".join(s))
+          print("RESULTADO: PODE POSTAR NO FACEBOOK" if "pages_manage_posts" in s else "RESULTADO: FALTA pages_manage_posts")
+          PY
