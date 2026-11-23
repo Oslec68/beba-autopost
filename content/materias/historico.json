@@ -1,1 +1,31 @@
-[]
+[
+ {
+  "id": "m2026-11-21_antibiotico",
+  "data": "2026-11-22 15:05",
+  "tema": "Antibióticos alteram a microbiota por até 8 anos",
+  "fonte": "Baldanzi et al., Nature Medicine, 2026 (Universidade de Uppsala)",
+  "url": "https://www.instagram.com/p/DgDaMBDHZth/",
+  "metricas": {"alcance": 6, "curtidas": 2, "comentarios": 0, "salvamentos": 0, "compartilhamentos": null},
+  "medido_em": "2026-11-23",
+  "mediana_reels_semana": {"periodo": "2026-11-16 a 2026-11-22", "n": 23, "alcance": 10, "curtidas": 3, "comentarios": 0, "salvamentos": 0, "compartilhamentos": 0},
+  "observacao": "Medido ~1 dia após publicar (dom 22/11 15:05). Alcance 6 vs mediana 10 dos Reels; curtidas 2 vs 3. Carrossel ainda abaixo dos Reels; reavaliar na próxima segunda."
+ },
+ {
+  "id": "m2026-11-28_fibra_muco",
+  "data": "2026-11-28 15:00",
+  "tema": "Sem fibra, bactérias consomem o muco protetor do intestino",
+  "fonte": "AbuSalim, Rabinowitz et al., PNAS, 2026 (Princeton / Ludwig Institute), doi:10.1073/pnas.2605226123",
+  "metricool": "https://app.metricool.com/planner/calendar?blogId=7691240&openWithPostUuid=1747126210505950499",
+  "metricas": null,
+  "observacao": "Agendado em 23/11. Gancho em pergunta curta, como o do antibiótico."
+ },
+ {
+  "id": "m2026-11-29_fibra_unicamp",
+  "data": "2026-11-29 15:00",
+  "tema": "Acetato da fibra ativa neutrófilos que ajudam a reparar o intestino (pesquisa brasileira)",
+  "fonte": "Oliveira, Vinolo et al., PNAS, 2026 (IB-Unicamp, apoio FAPESP), doi:10.1073/pnas.2606185123",
+  "metricool": "https://app.metricool.com/planner/calendar?blogId=7691240&openWithPostUuid=-5277703889708954972",
+  "metricas": null,
+  "observacao": "Agendado em 23/11. Testa o gancho 'pesquisa brasileira'."
+ }
+]
