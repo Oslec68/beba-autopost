@@ -1,5 +1,5 @@
-📊 @beba.wellness — desempenho dos Reels (56 medidos)
-Top 3: pf028_pessego (47) | pf008_pessego (46) | pf020_pessego (45)
-Melhor formato: quiz (22.9) · pior: rotina (8.9)
-Melhor sabor: pessego · pior: tangerina
-Pesos usados daqui pra frente: checklist 0.78, lineup 0.72, quiz 1.6, rotina 0.68, vs 1.15
+📊 @beba.wellness — desempenho dos Reels (74 medidos)
+Top 3: pf073_morango (56) | pf028_pessego (47) | pf008_pessego (46)
+Melhor formato: quiz (23.2) · pior: rotina (11.1)
+Melhor sabor: pessego · pior: limao
+Pesos usados daqui pra frente: checklist 1.09, lineup 0.69, quiz 1.4, rotina 0.67, vs 1.19
