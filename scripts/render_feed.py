@@ -3,6 +3,8 @@ Saída: out/feed/<id>/01.jpg, 02.jpg... e out/feed_next.json (id, tipo, arquivos
 Uso: python scripts/render_feed.py [--id fc001_pessego] [--todos]   (--todos renderiza o banco inteiro, para revisão)
 """
 import html, json, os, sys, shutil
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from cta import aplicar_cta  # cupom de content/cta.json
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS = os.path.join(ROOT, "template", "assets")
@@ -167,7 +169,7 @@ def main():
         b.close()
     if len(itens) == 1:
         it = itens[0]
-        json.dump({"id": it["id"], "tipo": it["tipo"], "legenda": it["legenda"],
+        json.dump({"id": it["id"], "tipo": it["tipo"], "legenda": aplicar_cta(it["legenda"]),
                    "arquivos": [f"{i:02d}.jpg" for i in range(1, len(it["slides"]) + 1)]},
                   open(os.path.join(ROOT, "out", "feed_next.json"), "w", encoding="utf-8"), ensure_ascii=False)
 

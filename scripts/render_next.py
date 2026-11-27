@@ -5,6 +5,7 @@ Uso: python scripts/render_next.py [--id pf001_limao] [--no-render]
 import json, os, shutil, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from revisor import revisar_post
+from cta import aplicar_cta
 from string import Template
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -146,8 +147,9 @@ def main():
     open(os.path.join(proj, "index.html"), "w", encoding="utf-8").write(html)
     out = os.path.join(ROOT, "out"); os.makedirs(out, exist_ok=True)
     mp4 = os.path.join(out, post["id"] + ".mp4")
-    open(os.path.join(out, post["id"] + ".txt"), "w", encoding="utf-8").write(post["legenda"])
-    json.dump({"id": post["id"], "mp4": mp4, "legenda": post["legenda"], "formato": formato, "capa_ms": F["capa"],
+    legenda = aplicar_cta(post["legenda"])  # cupom de content/cta.json
+    open(os.path.join(out, post["id"] + ".txt"), "w", encoding="utf-8").write(legenda)
+    json.dump({"id": post["id"], "mp4": mp4, "legenda": legenda, "formato": formato, "capa_ms": F["capa"],
                "bloqueados": sorted(bloqueados)},
               open(os.path.join(out, "next.json"), "w", encoding="utf-8"), ensure_ascii=False)
     print("Formato:", formato, "| capa em", F["capa"], "ms")

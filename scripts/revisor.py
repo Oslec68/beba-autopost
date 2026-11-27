@@ -19,11 +19,17 @@ PROIBIDAS = ["distribuidor oficial", "emagrece", "emagrecer", "cura ", "detox", 
 # Únicas alegações numéricas permitidas (rótulo): 6 g de fibra, 0 g de açúcar, 24% do VD, 400 ml, B3/B5/B6/B9.
 NUM_OK = {"6 g", "0 g", "24%", "400 ml", "6g", "0g", "400ml"}
 LIMITES = dict(tag=12, h1=12, h2=14, l2a=20, l2b=20, fim=30)
+try:
+    CTA_LINHAS = json.load(open(os.path.join(ROOT, "content", "cta.json"), encoding="utf-8")).get("linhas", [])
+except (OSError, ValueError):
+    CTA_LINHAS = []
 
 def revisar_post(p):
     """Devolve a lista de problemas (vazia = aprovado)."""
     erros = []
     texto = " ".join(str(p.get(k, "")) for k in ("tag", "h1", "h2", "l2a", "l2b", "fim", "legenda"))
+    for linha in CTA_LINHAS:  # o "50%" do cupom (content/cta.json) não é alegação do rótulo
+        texto = texto.replace(linha, " ")
     baixo = texto.lower()
     for w in PROIBIDAS:
         if w in baixo:
