@@ -17,6 +17,10 @@ on:
         description: "Só renderizar, sem publicar (true/false)"
         required: false
         default: "false"
+      origem:
+        description: "Quem disparou (agenda = horário automático externo; vazio = botão manual)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -28,10 +32,31 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  checar:
+    # Horário automático (agenda do GitHub ou disparo externo com origem=agenda):
+    # só publica com AUTOPOST_ATIVO = sim e se o último post saiu há mais de 120 min.
+    # Botão manual "Run workflow" (origem vazia) sempre publica, como antes.
+    runs-on: ubuntu-latest
+    outputs:
+      ok: ${{ steps.c.outputs.ok }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main   # histórico mais recente, mesmo se este disparo ficou na fila
+      - id: c
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event.inputs.origem }}" = "agenda" ]; then
+            if [ "${{ vars.AUTOPOST_ATIVO }}" != "sim" ]; then echo "AUTOPOST_ATIVO desligado"; echo "ok=nao" >> $GITHUB_OUTPUT; exit 0; fi
+            python3 scripts/checar_intervalo.py state/posted.json 120
+          else
+            echo "ok=sim" >> $GITHUB_OUTPUT
+          fi
+
   publicar:
     # Interruptor: os horários automáticos só rodam com a variável AUTOPOST_ATIVO = sim
     # (Settings → Secrets and variables → Actions → aba Variables). O botão "Run workflow" sempre funciona.
-    if: ${{ github.event_name == 'workflow_dispatch' || vars.AUTOPOST_ATIVO == 'sim' }}
+    needs: checar
+    if: ${{ needs.checar.outputs.ok == 'sim' }}
     runs-on: ubuntu-latest
     timeout-minutes: 40
     environment:
@@ -39,6 +64,8 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url || steps.deploy2.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main   # pega o posted.json mais recente (não repete vídeo se o disparo esperou na fila)
 
       - uses: actions/setup-node@v4
         with:

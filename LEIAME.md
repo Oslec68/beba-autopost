@@ -44,6 +44,11 @@ Vá em **Settings → Secrets and variables → Actions → New repository secre
 - **Pausar:** em Actions → Publicar Reel, clique em **⋯ → Disable workflow**.
 - **Publicar um post específico:** use Run workflow com `post_id` preenchido (ex.: `pf028_pessego`).
 
+## Trava contra post duplicado (27/11/2026)
+- Os dois workflows de publicação começam por um passo **checar**: nos horários automáticos (agenda do GitHub ou disparo externo com `origem = agenda`) só publica se `AUTOPOST_ATIVO = sim` e se o último post saiu há mais de **2 h** (Reels) ou **10 h** (feed). Assim, dois disparos juntos nunca postam duas vezes.
+- Os dois rodam sempre sobre a versão mais recente da `main`, então um disparo que ficou na fila vê o `state/posted.json` já atualizado e pega o vídeo seguinte.
+- O botão manual **Run workflow** (com `origem` vazio) continua publicando na hora, sem a trava.
+
 ## Carrosséis e posts de imagem (feed)
 - Todo dia às **16:10** o workflow **Publicar Carrossel/Post** publica o próximo item de `content/feed.json`, alternando carrossel e post de imagem. Somando com os 3 Reels, são **4 publicações por dia (28 por semana)**.
 - O banco tem **18 itens** (9 carrosséis e 9 imagens), o que dá 18 dias. As imagens são geradas na hora (1080x1350) a partir de `scripts/render_feed.py`, com as cores de cada sabor.
