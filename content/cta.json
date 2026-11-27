@@ -1,9 +1,9 @@
 {
- "_leia": "Chamada do cupom que entra em todas as legendas publicadas pelo autopost (Reels e feed), antes da linha 'Quer revender?'. Para desligar, troque \"ativo\" para false. Termos do cupom: 50% no 1º mês da assinatura Pura Fibra (post de 13/11/2026).",
+ "_leia": "Chamada do cupom que entra em todas as legendas publicadas pelo autopost (Reels e feed), logo antes das hashtags. Para desligar, troque \"ativo\" para false. A linha 'Quer revender?' não sai nesta conta (é do perfil de empresas): cta.py tira essa linha de qualquer legenda.",
  "ativo": true,
  "cupom": "CPCOMERCIAL50",
  "linhas": [
-  "🎟️ Cupom CPCOMERCIAL50: 50% no 1º mês.",
+  "🎟️ Cupom CPCOMERCIAL50: 50% de desconto na primeira compra por assinatura.",
   "👉 Segue a @beba.wellness"
  ]
 }

@@ -100,7 +100,7 @@ for i, (s, tag, h1, h2, a, b, fim, hook) in enumerate(P, 1):
     cap = f"{hook}\n\nPura Fibra {NOME[s]}: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n{fim}\n"
     if s in OXXO:
         cap += "📍 Você encontra no OXXO.\n"
-    cap += f"\nQuer revender? CP Comercial | WhatsApp (11) 94764-6006\n\n{TAGS[i % 4]}"
+    cap += f"\n{TAGS[i % 4]}"  # sem "Quer revender?": revenda é do perfil de empresas
     out.append(dict(id=f"pf{i:03d}_{s}", sabor=s, tag=tag, h1=h1, h2=h2, l2a=a, l2b=b, fim=fim, oxxo=s in OXXO, legenda=cap))
 p = os.path.join(os.path.dirname(__file__), "..", "content", "posts.json")
 json.dump(out, open(p, "w"), ensure_ascii=False, indent=1)

@@ -42,8 +42,8 @@ def revisar_post(p):
         erros.append(f"OXXO citado para {p.get('sabor')} (só Morango e Tangerina)")
     if bool(p.get("oxxo")) != ("oxxo" in p.get("legenda", "").lower()):
         erros.append("campo oxxo e legenda não batem")
-    if RODAPE not in p.get("legenda", ""):
-        erros.append("legenda sem o rodapé da CP Comercial")
+    if "quer revender" in p.get("legenda", "").lower():
+        erros.append("legenda com 'Quer revender?' (revenda é do perfil de empresas, não da @beba.wellness)")
     for k, lim in LIMITES.items():
         if len(str(p.get(k, ""))) > lim:
             erros.append(f"{k} longo demais ({len(p[k])} > {lim} letras, a fonte fica pequena)")

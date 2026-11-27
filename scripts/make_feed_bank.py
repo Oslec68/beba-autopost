@@ -102,7 +102,7 @@ for i, (tipo, gancho, slides) in enumerate(ITENS, 1):
     cap = f"{gancho}\n\nPura Fibra: 6 g de fibra, zero açúcar, zero caloria e vitaminas do complexo B.\n"
     if oxxo:
         cap += "📍 Morango e Tangerina você encontra no OXXO.\n"
-    cap += f"\n{RODAPE}\n\n{TAGS[i % 3]}"
+    cap += f"\n{TAGS[i % 3]}"  # sem "Quer revender?": revenda é do perfil de empresas
     pref = "fc" if tipo == "carrossel" else "fi"
     out.append(dict(id=f"{pref}{i:03d}_{sabores[0]}", tipo=tipo, slides=slides, legenda=cap))
 

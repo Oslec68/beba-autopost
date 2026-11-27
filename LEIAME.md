@@ -55,6 +55,8 @@ Vá em **Settings → Secrets and variables → Actions → New repository secre
 - As alegações usadas são as do rótulo: 6 g de fibra (24% do VD), zero açúcar, zero caloria, vitaminas do complexo B, 400 ml.
 - "Você encontra no OXXO" aparece só em **Morango e Tangerina**.
 - Nunca aparece "Distribuidor Oficial". O rodapé é sempre "CP Comercial | WhatsApp (11) 94764-6006".
+- **Legenda sem "Quer revender?"** (27/11/2026): revenda é do perfil de empresas, não da @beba.wellness. O revisor barra legenda com essa linha.
+- **Cupom** (27/11/2026): toda legenda publicada ganha, antes das hashtags, "🎟️ Cupom CPCOMERCIAL50: 50% de desconto na primeira compra por assinatura." e "👉 Segue a @beba.wellness". O texto fica em `content/cta.json` (para desligar, `"ativo": false`) e é aplicado por `scripts/cta.py` na hora de publicar.
 
 ## Formatos dos Reels e capa (01/11/2026)
 - Os Reels se alternam entre **5 formatos**: `vs` (Refri comum × Pura Fibra), `quiz` (pergunta com 3 opções), `lineup` (os 4 sabores), `checklist` e `rotina` (o modelo original). O sistema sempre usa o formato que está há mais tempo sem sair, então nunca saem dois vídeos seguidos com a mesma cara. Para fixar um formato num post, coloque `"formato": "quiz"` (por exemplo) nele em `content/posts.json`.
@@ -80,7 +82,7 @@ flowchart LR
   H --> J[Resumo no WhatsApp/Telegram]
 ```
 
-- **Revisor do texto** (`scripts/revisor.py`): antes de renderizar, barra post com palavra proibida (Distribuidor Oficial, emagrece, detox, cura…), número fora do rótulo (só 6 g, 0 g, 24%, 400 ml), OXXO fora de Morango/Tangerina, legenda sem o rodapé da CP Comercial, título longo demais ou legenda/hashtags acima do limite do Instagram. O post barrado é pulado e o aviso de sucesso diz qual foi. Para revisar o banco inteiro: `python scripts/revisor.py`.
+- **Revisor do texto** (`scripts/revisor.py`): antes de renderizar, barra post com palavra proibida (Distribuidor Oficial, emagrece, detox, cura…), número fora do rótulo (só 6 g, 0 g, 24%, 400 ml), OXXO fora de Morango/Tangerina, legenda com "Quer revender?", título longo demais ou legenda/hashtags acima do limite do Instagram. O post barrado é pulado e o aviso de sucesso diz qual foi. Para revisar o banco inteiro: `python scripts/revisor.py`.
 - **Revisor do vídeo**: depois de renderizar, confere duração (10–20 s), áudio e se a capa não saiu vazia. Reprovou, não publica e chega o aviso de falha.
 - **Ciclo de feedback** (`scripts/desempenho.py`, workflow **Medir desempenho**, toda segunda 10:37): mede cada Reel e dá nota (views + 2× curtidas/comentários + 5× salvamentos/compartilhamentos). O formato que rende mais volta mais rápido no rodízio (peso entre 0,6 e 1,6; só conta com 3+ Reels do formato). Nenhum formato some e nunca saem dois iguais seguidos. O resumo (top 3, melhor/pior formato e sabor) chega no WhatsApp/Telegram.
 - **Permissão:** para medir views, salvamentos e compartilhamentos, o token precisa de `instagram_manage_insights`. Sem ela, o sistema mede só curtidas e comentários e avisa no resumo.
