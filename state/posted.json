@@ -1,11 +1,5 @@
 [
  {
-  "id": "pf005_limao",
-  "media_id": "17909192289577371",
-  "permalink": "https://www.instagram.com/reel/DfD3IvNCEE5/",
-  "quando": "2026-10-29T01:48:01+00:00"
- },
- {
   "id": "pf006_tangerina",
   "media_id": "17989157174878605",
   "permalink": "https://www.instagram.com/reel/DfFpfV0D5gO/",
@@ -577,5 +571,12 @@
   "media_id": "18176127124467012",
   "permalink": "https://www.instagram.com/reel/DgQ67YUhN17/",
   "quando": "2026-11-28T00:02:33+00:00"
+ },
+ {
+  "id": "pf005_limao",
+  "formato": "checklist",
+  "media_id": "18005011770010525",
+  "permalink": "https://www.instagram.com/reel/DgRVaPChcyb/",
+  "quando": "2026-11-28T03:54:06+00:00"
  }
 ]
