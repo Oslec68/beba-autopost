@@ -1,11 +1,5 @@
 [
  {
-  "id": "pf004_pessego",
-  "media_id": "18119256511957258",
-  "permalink": "https://www.instagram.com/reel/DfDWaLsgjcw/",
-  "quando": "2026-10-28T21:02:02+00:00"
- },
- {
   "id": "pf005_limao",
   "media_id": "17909192289577371",
   "permalink": "https://www.instagram.com/reel/DfD3IvNCEE5/",
@@ -576,5 +570,12 @@
   "media_id": "18173730724481339",
   "permalink": "https://www.instagram.com/reel/DgQm_ChBj1X/",
   "quando": "2026-11-27T21:08:22+00:00"
+ },
+ {
+  "id": "pf004_pessego",
+  "formato": "lineup",
+  "media_id": "18176127124467012",
+  "permalink": "https://www.instagram.com/reel/DgQ67YUhN17/",
+  "quando": "2026-11-28T00:02:33+00:00"
  }
 ]
